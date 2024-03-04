@@ -1,17 +1,47 @@
-const heading = React.createElement("h1", 
-{id: "heading", syz:"abc"}, "helloworld From React");
-console.log(heading);
-const Main = ReactDOM.createRoot(document.getElementById("Main"));
-Main.render(heading);
+import React from "react";
+import ReactDOM from "react-dom/client"
 
-// const parent = React.createElement("div", {id:"parent"}, 
-// [React.createElement("div", {id:"1st-child"},
-//  [React.createElement("h1", {id:"textOf1h1"}, "hello from 1st Child" ),
-//  React.createElement("h2", {id:"textOf1H2"}, "Hello from 1st H2 text")]
-//  ),React.createElement("div", {id:"2nd-child"},
-//  [React.createElement("h1", {id:"textOf2h1"}, "hello from 2nd Child" ),
-//  React.createElement("h2", {id:"textOf2H2"}, "Hello from 2nd H2 text")]
-//  )]
-//  )
+// const heading = React.createElement(
+//     "h1",
+//     {id: "heading"},
+//     "this is the content"
+//     )
 
-// root.render(parent)
+
+// const HeadingComponentWithReturn = ()=>{
+//     return <h1>this is text from component</h1>
+// }
+// const HeadingComponentWithoutReturn = ()=><h1>this is text from component without return statement(explicitly) </h1>
+
+// const HeadingComponentMultilineWithoutReturn = ()=>(
+    
+//         <div id= "container">
+//             <HeadingComponentWithoutReturn/>
+//             <h1>
+//                 this is written
+//                 as
+//                 a multiline content and also without 
+//                 return statement(explicitly)
+//             </h1>
+//         </div>
+// )
+
+
+// const jsxHeading = (<div>
+
+//     <h1>content of heading through jsx</h1>
+// </div>
+
+// )
+
+const child = <h1><h1>this is content</h1></h1>
+const parent = (<h1>
+    this is paren, inside which i will use the child here
+    {child}
+</h1>)
+        
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(parent)
+// root.render(<HeadingComponentWithReturn />)
+// root.render(<HeadingComponentWithoutReturn />)
+// root.render(<HeadingComponentMultilineWithoutReturn />)
